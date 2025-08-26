@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TABERNA-WOW | Compra y Venta de Oro</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d1b2a;
+      font-family: 'Open Sans', sans-serif;
+      color: #e0e0e0;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px; /* aumentado para bajar el título */
+      background: #0a1724;
+      color: #fff;
+      position: relative;
+    }
+
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4em;
+      margin: 0;
+      color: #ffd700;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    header p {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #80dfff;
+      text-shadow: 1px 1px 2px #000;
+      margin-top: 10px;
+    }
+
+    /* --- Dropdown idiomas --- */
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .dropbtn {
+      background-color: #1c3d5a;
+      color: #ffd700;
+      padding: 8px 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-shadow: 1px 1px 2px #000;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #1c3d5a;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      margin-top: 5px;
+      padding: 10px;
+      z-index: 1;
+    }
+    .dropdown-content img {
+      width: 35px;
+      margin: 5px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s;
+    }
+    .dropdown-content img:hover {
+      transform: scale(1.1);
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    section {
+      background: #1c3d5a;
+      border-radius: 10px;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      color: #ffd700;
+      font-size: 2em;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 5px;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    h3 {
+      color: #80dfff;
+      margin-top: 20px;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    p, li {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #d6eaff;
+      text-shadow: 0.5px 0.5px 1px #000;
+    }
+
+    strong {
+      color: #7CFC00;
+      font-weight: bold;
+    }
+
+    ol, ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #1e90ff;
+      font-weight: bold;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #63b3ed;
+    }
+
+    .whatsapp-button, .call-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 20px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    .call-button {
+      right: 130px;
+      background-color: #007bff;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #128C7E;
+    }
+
+    .call-button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+      background-color: #0a1724;
+      color: #ccc;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.8em;
+      }
+
+      header p {
+        font-size: 1.2em;
+      }
+
+      section {
+        margin: 15px;
+        padding: 20px;
+      }
+
+      .whatsapp-button, .call-button {
+        padding: 12px 18px;
+        font-size: 15px;
+      }
+
+      .call-button {
+        right: 120px;
+      }
+
+      p, li {
+        font-size: 1em;
+      }
+
+      h2 {
+        font-size: 1.6em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botones flotantes -->
+  <a href="https://wa.me/5356646343" target="_blank" class="whatsapp-button">💬 WhatsApp</a>
+  <a href="tel:5356646343" class="call-button">📞 Llamar</a>
+
+  <header>
+    <div class="dropdown">
+      <button class="dropbtn">🌐 Idioma</button>
+      <div class="dropdown-content">
+        <img src="https://flagcdn.com/w40/es.png" alt="Español" onclick="setLanguage('es')">
+        <img src="https://flagcdn.com/w40/us.png" alt="English" onclick="setLanguage('en')">
+      </div>
+    </div>
+    <h1>TABERNA-WOW</h1>
+    <p id="subtitle">¡Compra y venta segura de <strong>ORO</strong> en <strong>ÚltimoWoW</strong>!</p>
+  </header>
+
+  <main id="content"></main>
+
+  <footer>
+    <p id="footer-text">TABERNA-WOW: RAPIDEZ, SEGURIDAD Y CONFIANZA</p>
+    <p>© 2025 ÚltimoWoW - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    const content = {
+      es: `
+        <section><h2>💰 Precio y Método de Pago</h2>
+          <p>💳 <strong>Transferencia Bancaria:</strong> 50 CUP por cada 1000 de oro</p>
+          <p>📱 <strong>Saldo Móvil:</strong> 25 CUP por cada 1000 de oro</p>
+          <h3>🔥 Oferta Especial (+30,000 oro)</h3>
+          <p>💳 <strong>Transferencia Bancaria:</strong> 45 CUP por cada 1000 de oro</p>
+          <p>📱 <strong>Saldo Móvil:</strong> 22.5 CUP por cada 1000 de oro</p>
+        </section>
+
+        <section><h2>✨ Puntos de Donación (PD)</h2>
+          <p>La venta de PD se realiza solo bajo pedido.</p>
+          <p>💳 <strong>Transferencia Bancaria:</strong> 2000 CUP por cada 1000 PD</p>
+          <p>📱 <strong>Saldo Móvil:</strong> 1000 CUP por cada 1000 PD</p>
+        </section>
+
+        <section><h2>📤 Vende Oro o PD a Nosotros</h2>
+          <p>💰 <strong>Oro:</strong> 40 CUP por cada 1000 de oro</p>
+          <p>🔷 <strong>PD:</strong> 37,000 de oro por cada 1000 PD</p>
+        </section>
+
+        <section><h2>📦 ¿Cómo funciona?</h2>
+          <ol>
+            <li>1️⃣ Escríbenos por WhatsApp</li>
+            <li>2️⃣ Realiza el pago</li>
+            <li>3️⃣ Entrega inmediata</li>
+          </ol>
+        </section>
+
+        <section><h2>❓ Preguntas Frecuentes</h2>
+          <p><strong>¿Cuánto tarda?</strong> Menos de 10 minutos.</p>
+          <p><strong>¿Es seguro?</strong> Sí, 100% seguro.</p>
+          <p><strong>¿Puedo comprar en cualquier horario?</strong> Sí, estamos disponibles 24/7.</p>
+          <p><strong>¿Aceptan otros métodos de pago?</strong> Por ahora solo transferencia o saldo móvil.</p>
+          <p><strong>¿Puedo pagar en USD o MLC?</strong> Contáctanos para consultar disponibilidad.</p>
+        </section>
+
+        <section><h2>🌟 ¿Por qué elegirnos?</h2>
+          <ul>
+            <li>✔️ Rápido</li>
+            <li>✔️ Confiable</li>
+            <li>✔️ Seguro</li>
+            <li>✔️ Atención directa</li>
+            <li>✔️ Buenos precios</li>
+            <li>✔️ Entrega inmediata</li>
+            <li>✔️ Soporte total</li>
+          </ul>
+        </section>
+      `,
+      en: `
+        <section><h2>💰 Price and Payment Method</h2>
+          <p>💳 <strong>Bank Transfer:</strong> 50 CUP per 1000 gold</p>
+          <p>📱 <strong>Mobile Balance:</strong> 25 CUP per 1000 gold</p>
+          <h3>🔥 Special Offer (+30,000 gold)</h3>
+          <p>💳 <strong>Bank Transfer:</strong> 45 CUP per 1000 gold</p>
+          <p>📱 <strong>Mobile Balance:</strong> 22.5 CUP per 1000 gold</p>
+        </section>
+
+        <section><h2>✨ Donation Points (DP)</h2>
+          <p>DP sales are made only on request.</p>
+          <p>💳 <strong>Bank Transfer:</strong> 2000 CUP per 1000 DP</p>
+          <p>📱 <strong>Mobile Balance:</strong> 1000 CUP per 1000 DP</p>
+        </section>
+
+        <section><h2>📤 Sell Gold or DP to Us</h2>
+          <p>💰 <strong>Gold:</strong> 40 CUP per 1000 gold</p>
+          <p>🔷 <strong>DP:</strong> 37,000 gold per 1000 DP</p>
+        </section>
+
+        <section><h2>📦 How it works?</h2>
+          <ol>
+            <li>1️⃣ Write to us on WhatsApp</li>
+            <li>2️⃣ Make the payment</li>
+            <li>3️⃣ Immediate delivery</li>
+          </ol>
+        </section>
+
+        <section><h2>❓ Frequently Asked Questions</h2>
+          <p><strong>How long does it take?</strong> Less than 10 minutes.</p>
+          <p><strong>Is it safe?</strong> Yes, 100% safe.</p>
+          <p><strong>Can I buy at any time?</strong> Yes, we are available 24/7.</p>
+          <p><strong>Do you accept other payment methods?</strong> For now only bank transfer or mobile balance.</p>
+          <p><strong>Can I pay in USD or MLC?</strong> Contact us for availability.</p>
+        </section>
+
+        <section><h2>🌟 Why choose us?</h2>
+          <ul>
+            <li>✔️ Fast</li>
+            <li>✔️ Reliable</li>
+            <li>✔️ Secure</li>
+            <li>✔️ Direct support</li>
+            <li>✔️ Good prices</li>
+            <li>✔️ Immediate delivery</li>
+            <li>✔️ Full support</li>
+          </ul>
+        </section>
+      `
+    };
+
+    function setLanguage(lang) {
+      document.getElementById("content").innerHTML = content[lang];
+    }
+
+    setLanguage("es");
+  </script>
+
+</body>
+</html>
